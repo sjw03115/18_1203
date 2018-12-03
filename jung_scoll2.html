@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 고홓 </title>
+<style type="text/css">
+
+body{ background: url('sky.png');  background-size: 800px; background-size:auto 800px;}
+
+	#walk{ width: 700px; height: 350px; background: url('walk.png') no-repeat;  position:fixed; background-size:auto 350px;  bottom: -50px;}
+
+	#back {width:7000px; height:700px; background:url(
+	'treespng'); background-size: auto;bottom: 0px;  position:absolute; }
+
+	#Van {width: 400px; height: 200px; background: url('Vangogh.gif');position: absolute; background-size:200px; bottom:300px; right: 500px;}
+	.sign {width: 500px; height: 380px; background: url('stop.png');position: absolute; background-size:auto ; bottom:100px; }
+
+</style>
+
+
+</head>
+<body>
+	
+	<div id="back"></div>
+	<div id="walk"></div>
+	<div id="Van"></div>
+	<div class="sign" style="Left:1200px"></div>
+	<div class="sign" style="Left:1500px"></div>
+	<div class="sign" style="Left:1800px"></div>
+
+
+
+	<script type="text/javascript">
+		window.onwheel = function(e){
+			var scroll = 100;
+			console.log(e.deltaY);
+			if(e.deltaY < 0){ scroll = -scroll; }
+			window.scrollBy(scroll,0);
+			
+			// 먼저 전체 폭대비 현재 위치의 비율을 구한다.
+			var ratio = window.pageXOffset / 7000;
+
+			//해당 오브젝트가 움직일 전체거리를 설정한다.
+			var distanceSun = 100;
+			//지금 오브젝트가 있어야 할 위치는 비율과 전체거리를 곱한 값이다.
+			var dSun = window.pageXOffset - distanceSun*ratio;
+			sun.style.transform = "translateX("+ dSun + "px)";
+
+			//클래스를 사용해 여러가지 오브젝트에 동시에 적용하기
+			var x = document.getElementBYclassName("sign");
+			for(var i=0; i<x.length; i++){
+				 var distanceSign = 14000;
+				var dSign = window.pageXOffset - distanceSign*ratio;
+				x[i].style.transform = "translateX ("+dSign + "px)";
+			}
+
+
+			parallax("sign",14000);
+			
+			function parallaxC(classname, distance){
+				var dSign = window;
+			}
+
+
+			var distanceSun =10000;
+			var dSign = window.pageXOffset - distanceSign*ratio;
+
+				sign.style.transform = "translateX("+dSun+"px)";
+			}
+		
+		
+	</script>
+
+		
+
+
+</body>
+</html>
